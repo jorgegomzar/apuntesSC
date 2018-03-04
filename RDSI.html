@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>RDSI</title>
+	<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+	<a href="tema2.html"><h2>Tema 2</h2></a>
+	<h2><a name="tema2.2">2. Red digital de Servicios Integrados (RSI)</a></h2>
+		<p>Es una red que se sigue utilizando pero cada vez menos, por ejemplo en naves de fábricas. Sin embargo es la primera red de acceso de banda ancha. Luego tiene cierta importancia histórica. 1984.</p>
+		<h3>Índice</h3>
+		<ol>
+			<a href="#Introducción"><li>Introducción</li></a>
+			<a href="#RTB"><li>Red Telefónica Básica (RTB)</li></a>
+			<a href="#canales"><li>Canales de transmisión y modos de acceso</li></a>
+			<a href="#agrupaciones"><li>Agrupaciones funcionales e interfaces</li></a>
+			<a href="#fisica"><li>Capa 1 - Nivel físico</li></a>
+			<a href="#enlace"><li>Capa 2 -Nivel de enlace</li></a>
+			<a href="#red"><li>Capa 3 - Nivel de red</li></a>
+		</ol>
+
+		<ol>
+			<h3>
+				<li><a name="Introducción">Introducción</a></li>
+			</h3>
+			<p><strong>Definición de RDSI:</strong> Red que procede de la evolución de la red telefónica básica RTB. Es una red que facilita conexiones extremo a extremo, es 100 % digital para proporcional una amplia gama de servicios, tanto de voz como de otros tipos. Aunque la red es totalmente digital permite conectar tanto dispositivos analógicos como digitales, no obstante es necesaria una conversión previa de la señal analógica a digital. <br>RDSI = ISDN (<em>Integrated Services Digital Network</em>) <br>Las primeras normas fueron emitidas en 1984 por la <em>CCITT</em>. <br>RDSI normalizada por la ITU (<em>International Telecom Union</em>).</p>
+			<p>- Ventajas de RDSI:</p>
+			<ul>
+				<li><strong>Velocidad: </strong> Mucho mayor que la de las líneas telefónicas: 56 Kbps.</li>
+				<li><strong>Conexión de múltiples dispositivos: </strong>Permite conectar varios dispositivos y de manera simultánea con una única linea RDSI. Mientras que en la red telefónica era necesaria una línea por dispositivo.</li>
+				<li><strong>Señalización: </strong>En la RTB es necesario enviar una señal de tensión para establecer la llamada, mientras que en RDSI se dispone de un canal independiente.</li>
+				<li><strong>Servicios: </strong>No solo se limita a ofrecer servicios de voz.</li>
+			</ul>
+			<h3>
+				<li><a name="RTB">Red Telefónica Básica (RTB)</a></li>
+			</h3>
+			<p>Como la red telefónica estaba pensada para transmitir voz humana tenía sentido que la RTB fuera una red analógica. Se le denominaba antiguamente <strong>RTC, Red Telefónica Conmutada</strong>, porque estaba basada en conmutación de circuitos, pero actualmente incluye <strong>RTB (analógica)</strong> y <strong>RDSI (digital)</strong> y ambas están basadas en conmutación de circuitos.</p>
+			<p><strong>La conmutación de circuitos telefónicos</strong> implicaba la existencia de una línea telefónica por usuario, pero con algunas líneas troncales compartidas por todos los usuarios. Si dos usuarios quieren iniciar la comunicación se establece el camino físico enlazando las líneas, liberándose cuando se finaliza la comunicación. Este método tiene un problema asociado conocido como <strong>saturación de la línea</strong> que ocurre cuando muchos usuarios quieren acceder de forma simultánea a la red.</p>
+			<p><strong>- Evolución:</strong></p>
+			<ol>
+				<table>
+					<tr>
+						<td rowspan="4"><img src="image/evolucion.PNG" alt="evolucion"></td>
+						<td><li><strong>Red telefónica original: </strong>Centrales analógicas con comunicación analógica entre ellas.</li></td>
+					</tr>
+					<tr>
+						<td><li><strong>Comunicación digital entre centrales: </strong> La calidad de la comunicación mejoró mucho porque el tramo más largo de la comunicación se hacía de manera digital evitando el ruido.</li></td>
+					</tr>
+					<tr>
+						<td><li><strong>Red digital integrada: </strong>Las centralitas pasan a ser digitales y mantienen la comunicación digital entre ellas. En esta comunicación se utiliza una doble conversión A/D y D/A. Para lograr esta conversión la señal se muestrea con una frecuencia de 8000 muestras/s, cada una de esas muestras oscilando entre 0 y 255 (8 bits). De esto se obtiene que la velocidad de la comunicación era de 64 Kbps.</li></td>
+					</tr>
+					<tr>
+						<td><li><strong>Red Digital de Servicios Integrados.</strong></li></td>
+					</tr>
+				</table>
+			</ol>
+			<p>Tanto la RTB como la RDSI se dividen en dos partes: parte externa e interna. <strong>La parte externa</strong> va desde la centralita local hasta el <strong>Punto de Terminación de Red (PTR)</strong>. <strong>La parte interna</strong> es la parte que va desde el PTR hasta la roseta RJ11 (en cada domicilio). La parte interna de la red es responsabilidad del usuario, la reparación corre a su cargo en caso de falla.</p>
+			<h3>
+				<li><a name="canales">Canales de transmisión y modos de acceso</a></li>
+			</h3>
+			<p>Existen varios <strong>tipos de canales</strong>:</p>
+			<ul>
+				<li><strong>Canales B: </strong>Transmiten información a 64 Kbps. Se utilizan para transmitir información de usuario (voz o datos) pero nunca para transmitir información de control RDSI (toda la información que no pertenece directamente a la comunicación pero es necesaria para que se establezca: el establecimiento y colgar).</li>
+				<li><strong>Canales D: </strong>Transmiten información a 16 o 64 Kbps se utilizan fundamentalmente para transmitir información de control pero si no se están utilizando para transmitir información de control se pueden utilizar para transmitir información de usuario.</li>
+				<li><strong>Canales H: </strong>Son una combinación o agrupación de varios canales B. Al igual que los canales B se utilizan únicamente para transmitir información de usuario. Hay diferentes tipos de canales H:</li>
+				<ul>
+					<li>H0 a 384 Kbps 6canales</li>
+					<li>H10 a 1472 Kbps 23 canales</li>
+					<li>H12 a 1920 Kpbs</li>
+				</ul>
+			</ul>
+			<p>Los <strong>modos de acceso</strong> se combinan para formar diversos tipos de acceso de usuario (tipos de servicio). Dos modos:</p>
+			<ul>
+				<li>Acceso básico BRI, <em>Basic Rate Interface</em>. 2B + D16, 144Kbps. Pensado para usuarios individuales.</li>
+				<li>Acceso primario PRI, <em>Primary Rate Interface</em>. Europa: 30B + D64 1984 Kbps. Pensado para empresas con gran demanda.</li>
+			</ul>
+			<h3>
+				<li><a name="agrupaciones">Agrupaciones funcionales e interfaces</a></li>
+			</h3>
+			<p>Las <strong>agrupaciones funcionales</strong> (también llamados componentes básicos RDSI) son equipos o elementos que realizan una función conreta dentro de la red. <br>Los <strong>interfaces</strong> (puntos de referencia) son puntos de la red con unas características de transmisión o conmutación determinadas.</p>
+			<ol>
+				<li><strong>Agrupaciones funcionales (Equipo terminal = TE)</strong></li>
+				<ul>
+					<table>
+						<tr>
+							<td rowspan="7"> <img src="image/agrupaciones_funcionales.PNG" alt="funcionales"> </td>
+							<td><li><em>TE1:</em> Dispositivo de usuario compatible con RDSI. Ej: tarjeta de PC, teléfono RDSI.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>TE2:</em> Dispositivo de usuario no compatible con RDSI. Ej: teléfono analógico.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>Adaptador de terminales:</em> Dispositivo que permite que los dispositivos no compatibles con RDSI puedan conectarse a la red.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>Terminación de red Tipo 1 (NT1):</em> Conecta un cableado de abonado RDSI de 2 pares al bucle de abonado convencional (1 par). Controla la conexión con la central y adecua las señales de la línea a códigos adecuados para la conexión de los equipos.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>Terminación de red Tipo 2 (NT2): Encargado de redirigir el tráfico hacia diferentes dispositivos de usuario.</li></em> Encargado de redirigir el tráfico hacia diferentes dispositivos de usuario.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>Terminacion de linea:</em> aspectos relacionados con la transmisión como por ejemplo adaptar el código de línea.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>Terminacion de central:</em> Realiza tareas de señalización.</li></td>
+						</tr>
+					</table>
+				</ul>
+
+				<li><strong>Interfaces</strong></li>
+				<ul>
+					<table>
+						<tr>
+							<td rowspan="4"><img src="image/interfaces.PNG" alt="interfaces" width="413" height="226"></td>
+							<td><li><em>R:</em> Representa un interfaz no normalizado RDSI.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>S:</em> Representa la conexión física de equipos terminales RDSI.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>S:</em> Eléctricamente idéntica a la interfaz S, hace referencia a la conexión de salida desde el NT2 a la RDSI. Representa la separaciñon entre la transmisión entre el domicilio del cliente y la transmisión en la línea.</li></td>
+						</tr>
+						<tr>
+							<td><li><em>U:</em> Hace referencia a la conexión entre la NT1 y la red RDSI propiedad de la compañía telefónica. Representa las características de transmisión en la línea (formato de trama, códigos posibles, niveles de señal, etc.)</li></td>
+						</tr>
+					</table>
+				</ul>
+			</ol>
+			<h3>
+				<li><a name="fisica">Capa 1 - Nivel físico</a></li>
+			</h3>
+
+				<p>Describe la conexión física entre el equipo terminal TE y el equipo terminal de red NT:</p>
+				<ul>
+					<li>Esquema de codificación.</li>
+					<li>Formatos de tramas.</li>
+					<li>Características eléctricas.</li>
+					<li>...</li>
+				</ul>
+				<p>Los canales B y D comparten la línea física. Necesitamos algún tipo de organización para decidir cuándo transmitimo por qué canales para evitar que se produzcan colisiones. El método empleado es el de <strong>multiplexación por división en el tiempo.</strong></p>
+				<ol>
+					<li><strong>Codificación por bits:</strong> Se emplean códigos de línea que permiten reducir la tasa de baudios (número de veces que la señal cambia de voltaje por segundo). Con un pulso representamos más de un bit. Mayor velocidad de transmisión. <br> Los códigos de línea que se utilizan (mBnL: una secuencia de m bits se transmite como n pulsos de señal de tipo L):</li>
+					<ul>
+						<li><strong>2B1Q en EEUU</strong>. 2 bits pueden transmitirse como un único pulso de señal de tipo cuaternario, es decir, con cuatro niveles de voltaje.</li>
+						<img src="image/codificacion2BQ1.PNG" alt="2BQ1">
+						<li><strong>4B3T en Europa</strong>. 4 bits pueden transmitirse como 3 pulsos de señal de tipo ternario, es decir, con tres niveles de voltaje.</li>
+						<img src="image/codificacion4B3T.PNG" alt="4B3T" width="400">
+						<img src="image/patrones4B3T.PNG" alt="patrones" width="500">
+					</ul>
+					<li><strong>Formato de trama</strong></li>
+					<p>Por simplicidad nos vamos a centrar en el acceso básico. El formato de trama varía dependiendo de si va de los terminales a la red o de la red a los terminales. Las tramas BRI tienen una longitud de 48 bits, de los cuales 36 son de datos y 12 son de sobrecarga. <br>Pueden considerarse como dos tramas de 24 bits en sucesión. Se transmiten 4000 tramas por segundo: <br> <strong>4000*48 = 192 Kbps</strong>, pero como solo 36 bits son de información <strong>la velocidad efectiva es de 144 Kbps de BRI</strong>.</p>
+					
+					<p>La trama empieza en el bit F y termina en DL. Todos los campos tienen 1 bit excepto B1 y B2.</p>
+					<table border="0">
+						<tr>
+							<td rowspan="8"><img src="image/trama.PNG" alt="trama"></td>
+							<td><strong>F</strong></td>
+							<td>Inicio de la trama</td>
+						</tr>
+						<tr>
+							<td> <strong>L</strong></td>
+							<td>Bits de balance de continua</td>
+						</tr>
+						<tr>
+							<td><strong>FA, N, M</strong></td>
+							<td>Estructuras multitrama</td>
+						</tr>
+
+						<tr>
+							<td><strong>A</strong></td>
+							<td>Bit de activacón para activar o desactivar la transmisión de un determinado terminal de usuario</td>
+						</tr>
+						<tr>
+							<td><strong>S</strong></td>
+							<td>Bit de reserva, no se utiliza</td>
+						</tr>
+						<tr>
+							<td><strong>B1 y B2</strong></td>
+							<td>Datos de los canales B</td>
+						</tr>
+						<tr>
+							<td><strong>D</strong></td>
+							<td>Datos del canal D</td>
+						</tr>
+						<tr>
+							<td><strong>E</strong></td>
+							<td>Bits de Echo, aparecen únicamente en la trama que viaja de la red a los terminales. Llevan la misma información que los bits D de la trama a la que responden. Por tanto, si un determinado terminal comienza a recibir bits de Echo que no coincide con los bits D que él ha transmitido debe finalizar su transmisión inmediatamente. <strong>Son un mecanismo de resolución de contención</strong> para indicar qué terminal puede transmitir en un momento determinado y cuales deben finalizar la transmisión.</td>
+						</tr>
+					</table>
+				</ol>
+				<h3><li><a name="enlace">Capa 2 -Nivel de enlace</a></li></h3>
+				<table>
+					<tr>
+						<td rowspan="9"><img src="image/formatoEnlace.PNG" alt="tramaEnlace" width="500"></td>
+						<td><strong>Flags o banderas</strong></td>
+						<td>Son campos de 1 byte que marcan el inicio y final de la trama, formados por <strong>01111110</strong>.</td>
+					</tr>
+					<tr>
+						<td><strong>Dirección</strong></td>
+						<td>2 bytes.</td>
+					</tr>
+					<tr>
+						<td><strong>Control</strong></td>
+						<td>De 1 byte, indica el tipo de trama. </td>
+					</tr>
+					<tr>
+						<td><strong>Datos</strong></td>
+						<td>De longitud variable, contiene la información que viene de las capas superiores (capa 3). </td>
+					</tr>
+					<tr>
+						<td><strong>FCS</strong></td>
+						<td>Secuencia de comprobación de trama, se utiliza para comprobar que esa trama se ha transmitido sin errores.</td>
+					</tr>
+					<tr>
+						<td> <strong>EA</strong></td>
+						<td>Bits de dirección extendida, se utilizan para saber si el siguiente bit pertenece al campo de dirección. Si <strong>EA = 0</strong>, indica que el siguiente byte pertenece al campo de dirección, <strong>EA = 1</strong> indica que el siguiente byte ya no pertenece al campo de dirección.</td>
+					</tr>
+					<tr>
+						<td><strong>SAPI</strong></td>
+						<td>Longitud de 6 bytes, <strong>Identificador de Punto de Acceso al Servicio</strong>, nos indica para qué tipo de comunicación se utiliza esa trama. Por ejemplo, <strong>SAPI = 0</strong> indica que esa trama se utiliza para control de llamadas.</td>
+					</tr>
+					<tr>
+						<td><strong>CR</strong></td>
+						<td>Bit de <strong>Comando/Respuesta</strong> Se utiliza para diferenciar si esa trama es un comando o una respuesta a una orden previa. Si la trama viaja <strong>desde la red hacia los usuarios</strong> un bit CR = 1 indica que es una respuesta, y 0 un comando. Si la trama viaja <strong>desde los usuarios a la red</strong> es justamente al contrario.</td>
+					</tr>
+					<tr>
+						<td><strong>TEI</strong></td>
+						<td>De 7 bits, <strong>Identificador de Terminal de Punto extremo</strong>, se utiliza para identificar los terminales que indica desde qué terminal o hacia que terminal viaja esa trama. Si <strong>TEI = 1111111</strong> se interpreta como la dirección broadcast.</td>
+					</tr>
+				</table>
+				<h3>
+					<li><a name="red">Capa 3 - Nivel de red</a></li>
+				</h3>
+				<p>Es el responsable de <strong>establecer</strong>, <strong>mantener</strong> y <strong>terminar</strong> las comunicaciones para canales B y D (basados en conmutación de circuitos). <br>La información intercambiada entre el origen y destino va colocada en el campo <em>Datos</em>, de las tramas del nivel de enlace. <br><em>Tipos de mensajes</em>:</p>
+				<ul>
+					<li>Establecimiento o setup.</li>
+					<li>Desconexión.</li>
+					<li>Liberación completa.</li>
+				</ul>
+				<p><em>Formato del mensaje de nivel 3:</em></p>
+				<ul>
+					<li> <strong>Discriminador de protocolo:</strong> 1 byte, puede ser el especificado por la ITU, una versión nacional u otro.</li>
+					<li><strong>Longitud del Valor de referencia de llamada:</strong> 1 byte. Marca la longitud del siguiente campo.</li>
+					<li><strong>Valor de referencia de llamada:</strong> 1 o 2 bytes. Identifica inequívocamente cada llamada en la interfaz local entre usuario y red.</li>
+					<li><strong>Tipo de mensaje:</strong> 1 byte.</li>
+					<li><strong>Elemento de información obligatoria y adicional:</strong> Variable. Depende del tipo de mensaje.</li>
+				</ul>
+				<img src="image/ejemplosTramaRed.PNG" alt="EjemplosTramaRed" width="750" height="400">
+			</ol>
+		<table>
+			<tr>
+				<td><a href="tema2.html"><h3>Tema 2</h3></a></td>
+				<td><a href="#tema2.2"><h3>Inicio de la página</h3></a></td>
+			</tr>
+		</table>
+</body>
+</html>

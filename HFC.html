@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>HFC</title>
+	<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+	<a href="tema2.html"><h2>Tema 2</h2></a>
+	<h2><a name="HFC">3. Redes Híbridas Fibra-Coaxial (RFC)</a></h2>
+	<h3>Índice</h3>
+	<ol>
+		<li><a href="#introduccion">Introducción</a></li>
+		<li><a href="#topologia">Topología de la red HFC</a></li>
+		<li><a href="#troncal">Red troncal primaria</a></li>
+		<ol>
+			<li><a href="#descendente">Canal descendente de un Nodo Primario</a></li>
+			<li><a href="#ascendente">Canal ascendente de un Nodo Primario</a></li>
+		</ol>
+		<li><a href="#distribucion">Red troncal secundaria o de distribución</a></li>
+		<li><a href="#secundario">Nodo Secundario</a></li>
+		<li><a href="#dispersion">Red troncal terciaria o de dispersión</a></li>
+		<li><a href="#terminal">Nodo Óptico Terminal</a></li>
+		<li><a href="#distCoaxial">Red de distribución de coaxial</a></li>
+		<li><a href="#abonado">Red de acometida de abonado</a></li>
+		<li><a href="#TV">Servicios de TV de las redes HFC</a></li>
+		<li><a href="#telefonia">Servicio de telefonía</a></li>
+		<li><a href="#internet">Servicio de Acceso a Internet</a></li>
+
+		
+	</ol>
+	<ol>
+		<h3>
+			<li><a name="introduccion">Introducción</a></li>
+		</h3>
+		<p>Su origen está relacionado con el <b>CATV</b>. En Astoria un vendedor de TV se ofreció a instalar una antena y un hilo de hierro para que sus clientes tuvieran buena recepción. Cuando llegó la fibra fue posible la bidireccionalidad de los datos. <br><b>HFC</b> es una red <i>Híbrida de Fibra Óptica y Cable Coaxial</i>, que permite el transporte de todo tipo de señales (televisión, telefonía, datos, audio, etc), desde una cabecera hasta los usuarios a través de una red de distribución de carácter mixto.</p>
+		<ul>
+			<li><b>Características:</b></li>
+			<ul>
+				<li>También conocidas como redes de cable o Red MAN.</li>
+				<li>Sistema bidireccional de transmisión.</li>
+				<li>Mayor Ancho de Banda que el Par de Cobre.</li>
+				<li>Ofrece Servicios integrados de TV, telefonía y datos.</li>
+				<li>Están dimensionadas para dar servicio al 100% de los hogares y comercios de la demarcación.</li>
+				<li>Redundancia: garantiza la fiabilidad en la transmisión de señales.</li>
+				<li>Posibilidad de extensión de la red de fibra:</li>
+				<ul>
+					<li><b>FTTF: </b>Fiber To The Feeder.</li>
+					<li><b>FTTC: </b>Fiber To The Curb.</li>
+					<li><b>FTTB: </b>Fiber To The Building.</li>
+					<li><b>FTTH: </b>Fiber To The Home.</li>
+				</ul>
+			</ul>
+		</ul>
+		<h3>
+			<li><a name="topologia">Topología de la red HFC</a></li>
+		</h3>
+		
+		<table>
+			<tr>
+				<td>
+					<h4>Se estructura en partes:</h4>
+					<ul>
+						<li>Cabecera.</li>
+						<li>Red troncal:</li>
+						<ul>
+							<li>Primaria.</li>
+							<li>Secudaria o de distribución.</li>
+							<li>Terciaria o de dispersión.</li>
+						</ul>
+						<li>Red de distribución de coaxial.</li>
+						<li>Red de acometida de abonado.</li>
+						<li>Red interior del cliente.</li>
+					</ul>
+				</td>
+				<td><img src="image/troncal.PNG" alt="troncal" width="500"></td>
+			</tr>
+		</table>
+		<h4>Sistema de tx óptica del camino descendente y rx óptica del ascendente:</h4>
+		
+			<table border="1">
+					<tr>
+						<td><b>Sistema de transmisión del camino descendente:</b>
+							<ul>
+								<li><b>Splitters:</b> Reparten la señal combinada RF de la cabecera.</li>
+								<li><b>Dos transmisores por nodo primario:</b> La salida se inyecta a FO.</li>
+							</ul></td>
+						<td><img src="image/tx.PNG" alt="tx"></td>
+					</tr>
+					<tr>
+						<td><b>Sistema de Recepción del camino ascendente:</b>
+						<ul>
+							<li><b>Dos receptores ópticos por cada nodo primario.</b></li>
+							<li><b>Combinador:</b> Unifica señales generando una única señal dirigida hacia los sistemas de monitorización y de control de acceso.</li>
+						</ul></td>
+						<td><img src="image/rx.PNG" alt="rx"></td>
+					</tr>
+			</table>
+		<p>*: El círculo se utiliza para representar que es fibra óptica. <br>**: La línea en negrita simboliza la línea primaria.</p>
+		<h3>
+			<li><a name="troncal">Red troncal primaria</a></li>
+		</h3>
+		<p>Distribución en anillo geográfico con arquitectura de estrella. <br>Constituida por 128 fibras ópticas que comunican la cabecera con los nodos primarios. <br>Se garantiza la fiabilidad de las transmisiones con redundancia en la ruta y en el equipamiento.</p>
+		<ol>
+			<h3>
+				<li><a name="descendente">Canal descendente de un Nodo Primario</a></li>
+			</h3>
+				<p><b>Dos rx ópticos:</b> Realizan la conversión óptico-eléctrica de la señal: para el camino principal y el de respaldo. <br>El switch selecciona uno de los dos caminos, por defecto el principal.</p>
+				<ul>
+					<li><b>En caso de degradación</b> se conmita al de respaldo.</li>
+					<li><b>Cuando la señal vuelva a los niveles óptimos,</b> el switch retorna a su posición original.</li>
+				</ul>
+				<p>El amplificador de RF provee del nivel de señal adecuado de entrada a los tx ópticos que enlazan con los NOT. <br> <b>Splitters:</b> permite conseguir el número de salidas necesarias. Cada salida de RF (radio frecuencia) alimenta a un tx óptico. Cada tx óptico alimenta a varios NOT.</p>
+				<img src="image/descendente.PNG" alt="descendente" width="500">
+			
+			<h3>
+				<li><a name="ascendente">Canal ascendente de un Nodo Primario</a></li>
+			</h3>
+			<img src="image/ascendente.PNG" alt="ascendente">
+		</ol>
+		<h3>
+			<li><a name="distribucion">Red Troncal secundaria o de distribución</a></li>
+		</h3>
+		<p>Conecta un primario con varios secundarios a travñes de anillos con arquitectura en estrella. <br>Constituida por 128 fibras ópticas, formando lóbulos que cubren 12.000 hogares. Con redundancia en equipamientos y rutas. <br>Cada lóbulo interconecta 6 o 5 nodos secundarios cada uno de ellos da servicio a 2.000 hogares.</p>
+		<h3>
+			<li><a name="secundario">Nodo Secundario</a></li>
+		</h3>
+		<p>Cada lóbulo está formado por 128 fibras (96 están activas), distribuidas en 6 anillos (fibras ópticas por anillo, 8 asignadas al camino principal y 8 asignadas al camino secundario), cada uno interconectando el nodo primario con un nodo secundario. El resto son de reserva. <br>En estos grupos de 8 fibras pueden distinguirse 4 fibras para el canal descendente y otras tantas para el ascendente. Al NOT llegan 4 fibras.</p>
+		<table>
+			<tr>
+				<td><img src="image/secundario(1).PNG" alt="secundario 1">
+				</td>
+				<td><img src="image/secundario(2).PNG" alt="secundario 2"></td>
+			</tr>
+		</table>
+
+		<h3>
+			<li><a name="dispersion">Red troncal terciaria o de dispersión</a></li>
+
+		</h3>
+		<h3>
+			<li><a name="terminal">Nodo Óptico Terminal</a></li>
+		</h3>
+		<p>Los NOTs se ubican físicamente en armarios de intemperie.  <br></p>
+		<table border="1">
+			<tr>
+				<td><b>Para el camino descendente</b>, se realiza la conversión óptico eléctrica, y la señal resultante es amplificada y reenviada mediante las cuatro ramas hacia los abonados.</td>
+				<td><img src="image/ascendenteNOT.PNG" alt="ascNOT"></td>
+			</tr>
+			<tr>
+				<td><b>Para el camino descendente</b>, se reciben las señales procedentes de los equipos de abonado, en el ancho de banda reservado a retorno, se combinan todas ellas, y se realiza la conversión eléctrico-óptica para su remisión hacia el nodo primario.</td>
+				<td><img src="image/descendenteNOT.PNG" alt="desNOT"></td>
+			</tr>
+
+		</table>
+		<p>En sentido descendiente los amplificadores no suponen un problema, en sentido ascendente los amplificadores pueden atenuar demasiado la señal por lo que se recomienda que el número máximo de amplificadores en serie sea 3.</p>
+		<h3>
+			<li><a name="distCoaxial">Red de distribución de coaxial</a></li>
+		</h3>
+		<p>Distribuye señales desde el NOT hasta cada punto de derivación del edificio. <br>Con estructura en árbol: de cada NOT 4 ramas de 125 hogares. <br>En el NOT se realiza la <b>conversión óptico-eléctrica</b>. La señal en RF, se envía a los amplificadores que proporcionan señal a cada una de las cuatro ramas de coaxial. Cada rama de coaxial alimenta a una red de derivadores o taps, cuyas salidas están conectadas a las acometidas individuales de abonado, que se realizan sobre el edificio. <br>La distribución de coaxiales en los edificios sigue el reglamento ICT<b>*</b>. <br>Las señales de retorno llegan a cada NOT a través de las 4 ramas de 125 hogares, donde son combinadas y enviadas hacia el nodo primario mediante un transmisor óptico.</p>
+		<p><b>*Reglamento ICT:</b> Normas de Infraestructura Común de Telecomunicaciones, los cables deben ser no visibles por ley.</p>
+		<ul>
+			<li><b>RITI: </b>Recinto de Instalaciones de Telecomunicaciones Interior.</li>
+			<li><b>RITS: </b>" " Superior.</li>
+			<li><b>RITU: </b>" " Único.</li>
+			<li><b>RITM: </b>" " Modular.</li>
+		</ul>
+		<h3>
+			<li><a name="abonado">Red de acometida de abonado</a></li>
+		</h3>
+		<p>Parte de los taps situados en el edificio y llega hasta el domicilio del abonado. Existen dos arquitecturas:</p>
+		<ul>
+			<li><b>Estrella: </b>un mismo tap da servicio a todas las viviendas de un edificio. A cada vivienda le llega un cable coaxial diferente.</li>
+			<li><b>Árbol: </b>se utiliza cuando existen muchas viviendas por planta. Se coloca un tap en cada planta del que parten los coaxiales que dan servicio a los abonados. En ocasiones, un mismo tap da servicio a más de una planta.</li>
+		</ul>
+		<h3>
+			<li><a name="TV">Servicios de TV de las redes HFC</a></li>
+		</h3>
+		<p>En general requiere de transmisión bidireccional por red:</p>
+		<ul>
+			<li><b>Difusión de canales de TV: </b>terrestres, de satélite y de producción propia.</li>
+			<li><b>Vídeo a la carta (VOD): </b>selección de películas.</li>
+			<li><b>PPV: </b>pago por los eventos individuales que deseamos ver.</li>
+			<li><b>Aplicaciones interactivas a través de TV: </b>Web, chat.</li>
+			<li><b>Datos e Internet mediante módems de cable.</b></li>
+			<li><b>Telefonía básica y RDSI.</b></li>
+			<li><b>Alquiler de líneas y fibras: </b>de interés para comercios y oficinas que necesitan de líneas dedicadas.</li>
+		</ul>
+		<img src="image/tv.PNG" alt="tv">
+		<h3>
+			<li><a name="telefonia">Servicio de Telefonía</a></li>
+		</h3>
+		<ul>
+			<li><b>Servicio básico:</b></li>
+			<ul>
+				<li>POTS (Telefonía Básica Analógica).</li>
+			</ul>
+			<li><b>Otros servicios de valor añadido:</b></li>
+			<ul>
+				<li>Telefonía Básica Digital RDSI.</li>
+				<li>Primarios digitales.</li>
+				<li>Redes privadas Virtuales de Voz.</li>
+				<li>Marcación abreviada.</li>
+				<li>Llamada en espera.</li>
+				<li>Desvío de llamadas.</li>
+				<li>Contestador.</li>
+				<li>Buzón de voz.</li>
+				<li>VoIP (Voz sobre IP).</li>
+			</ul>
+			<li><b>Modalidades de prestación del servicio:</b></li>
+			<ul>
+				<li><u>Telefonía superpuesta (OVERLAYED).</u></li>
+				<p>Esquema similar al tradicional de pares tranzados. Se provee de un canal de 64 Kbps a cada hogar desde el nodo óptico. Canal dedicado para cada cliente. <br>Dos tendidos de cable: coaxial y par trenzado. Utilización de dos tecnologías muy maduras. No requiere equipamiento en casa del cliente. Inversión superior en despliegue de red.</p>
+				<img src="image/superpuesta.PNG" alt="superpuesta">
+				<li><u>Telefonía Integrada.</u></li>
+				<p>La transmisión de la seál se hace en RF hasta el domicilio del cliente utilizando el espectro de frecuencias de la red HFC. Un único tendido de cable coaxial. Un equipo en casa del cliente traduce de RF a banda base (4KHz). Inversión superior en equipo en la casa del cliente.</p>
+				<img src="image/integrada.PNG" alt="integrada">
+				<li><u>Sistema mixto de Telefonía.</u></li>
+				<p>La conversión de RF a banda base se realiza en un nodo telefónico <u><b>próximo</b></u> al domicilio del abonado, y no dentro. <br>El nodo telefónico presta servicio a varias viviendas. La señal llega al nodo telefónico en coaxial y parte en dos soportes: coaxial para señal de Internet y TV, y par trenzado para telefonía. <br>En ocasiones el nodo se ubica en el RITI de los edificios.</p>
+				<img src="image/mixto.PNG" alt="mixto">
+				<li><u>Voz sobre IP (VoIP).</u></li>
+				<p>Permite la transmisión de la voz en forma de paquetes de datos con protocolo IP. <br><b>Un punto decisivo:</b> el abaratamiento de los Procesadores Digitales de Señal, claves en la compresión y descompresión de la voz. <br><b>Ventajas:</b></p>
+				<table>
+					<tr>
+						<td>
+							<ul>
+								<li>Posibilidad de integrar aplicaciones de voz con los servicios de datos que actualmente se llevan a cabo sobre IP.</li>
+								<li>Ofrece características avanzadas que el usuario puede personalizar de forma rápida y sencilla.</li>
+								<li>Permite una mayor competencia en el área de las telecomunicaciones.</li>
+								<li>Los costes del equipo son relativamente bajos.</li>
+								<li>Menor requerimiento del ancho de banda.</li>
+								<li>Se basa en protocolos ampliamente aceptados como IP y H.323.</li>
+							</ul>
+						</td>
+						<td><img src="image/VoIP.PNG" alt="VoIP" width="700" height="300"></td>
+					</tr>
+				</table>
+			</ul>
+		</ul>
+		<h3>
+			<li><a name="internet">Servicio de Acceso a Internet</a></li>
+		</h3>
+		<p>Concede <b>servicios básicos</b> como acceso a Internet y otros ISPs, <b>servicios de valor añadido</b>:</p>
+		<ul>
+			<li>Acceso a servidores multimedia.</li>
+			<li>Interconexión de las LANs.</li>
+			<li>Redes Privadas Virtuales (VPN).</li>
+			<li>Housing, Hosting, gestión de dominios, etc.</li>
+			<li>Servicios de utilidad pública: telemedicina, telebanca, teletrabajo, prensa electrónica, etc.</li>
+			<li>Servicios de ocio: videojuegos.</li>
+		</ul>
+		<p>y <b>servicios de transmisión de datos</b>:</p>
+		<ul>
+			<li>Se basan en conmutación de circuitos y conmutación de paquetes o celdas aplicables a soluciones Internet/Intranet.</li>
+		</ul>
+		<p>La arquitectura básica para ofrecer servicio a Internet consiste de:</p>
+		<ul>
+			<li><b>Router: </b>encamina el tráfico IP entre la red de datos e Internet.</li>
+			<li><b>Servidor Proxy: </b>actúa a modo de caché.</li>
+			<li><b>Firewall: </b>garantiza la seguridad.</li>
+			<li><b>Conmutadores: </b>interconectan distintos equipos.</li>
+			<li><b>CMTS o Cabecera o cablemodem.</b></li>
+			<li><b>Cablemodem.</b></li>
+		</ul>
+	</ol>
+</body>
+</html>

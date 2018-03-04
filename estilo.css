@@ -1,0 +1,41 @@
+/*Contenido del archivo estilo.css*/
+
+
+body {
+	background-color: lightblue;
+}
+h1{
+	color: darkblue !important;
+}
+h2{
+	color: darkblue !important;
+}
+h3{
+	color: darkblue !important;
+}
+h4{
+	color: darkblue !important;
+}
+strong{
+	color: blueviolet;
+}
+b{
+	color: blueviolet;
+}
+table{
+	border-color: black;
+	border-collapse: collapse;
+}
+img{
+	border: solid black 2px;
+}
+a:active{
+	color: gray;
+}
+a:hover{
+	color: gray;
+}
+a:link,:visited{
+	color: darkblue;
+	text-decoration: underline;
+}
